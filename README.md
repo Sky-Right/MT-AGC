@@ -1,6 +1,6 @@
-# Semantic–Structural Enhanced Multi-Order Graph Clustering via Contrastive Learning (S2MoGC)
+# Multi-Order Feature Fusion and Pseudo-Label Guided Semantic Matching for Contrastive Graph Clustering
 
-An official source code for paper **"Semantic–Structural Enhanced Multi-Order Graph Clustering via Contrastive Learning"**.  
+An official source code for paper **"Multi-Order Feature Fusion and Pseudo-Label Guided Semantic Matching for Contrastive Graph Clustering"**.  
 Any communications or issues are welcomed. Please contact **[@xxx.com](mailto:your_email@xxx.com)**.
 
 The authors of the paper: 
@@ -9,7 +9,7 @@ The authors of the paper:
 
 ## Overview
 
-We propose **S2MoGC**, a semantic–structural enhanced multi-order graph clustering framework trained with **contrastive learning**.  
+We propose **MPCGC**, a Multi-Order Feature Fusion and Pseudo-Label Guided Semantic Matching for Contrastive Graph Clustering.  
 The framework mainly contains:
 
 - **Multi-order feature smoothing / fusion** on the original graph
