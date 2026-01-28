@@ -56,19 +56,19 @@ elif args.dataset == 'bat':
     args.dims = [800]
     args.sigma = 0.001
     args.gama = 1.0
-    k_value = 3    #10 5 7 6 3(best)
+    k_value = 3
     args.stage1_epochs = 200
     args.label_match_weight = 0.5
 
 elif args.dataset == 'eat':
     args.cluster_num = 4
-    args.gnnlayers = 100 #88
-    args.global_layers = 3 #3
+    args.gnnlayers = 100
+    args.global_layers = 3
     args.lr = 2e-3
     args.dims = [800]
     args.sigma = 0.01
     args.gama = 0.5
-    k_value = 20    #k_value 15(best)
+    k_value = 20
     args.stage1_epochs = 300
     args.label_match_weight=1.0
 
@@ -113,7 +113,7 @@ for seed in range(10):
     target = torch.FloatTensor(adj_1st).to(args.device)
     
     cc_loss_fn = ContrastiveLoss(temperature=1.0)
-    lm_loss_fn = LabelMatchingLoss()  # ← 添加这一行
+    lm_loss_fn = LabelMatchingLoss()
     
     for epoch in tqdm(range(args.epochs), desc=f"Seed {seed}"):
         model.train()
@@ -138,8 +138,8 @@ for seed in range(10):
                     confidence_ratio=args.confidence_ratio
                 )
 
-                high_conf_labels_tensor = high_conf_labels  # 直接用
-                high_conf_mask_tensor = high_conf_mask  # 直接用
+                high_conf_labels_tensor = high_conf_labels
+                high_conf_mask_tensor = high_conf_mask
 
             semantic_labels_1 = model.get_semantic_labels(z1)
             semantic_labels_2 = model.get_semantic_labels(z2)
@@ -188,7 +188,6 @@ for seed in range(10):
     nmi_list.append(best_nmi)
     ari_list.append(best_ari)
     f1_list.append(best_f1)
-    #print(model.alpha)
 
 acc_list = np.array(acc_list)
 nmi_list = np.array(nmi_list)

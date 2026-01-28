@@ -212,7 +212,6 @@ def setup_seed(seed):
     torch.backends.cudnn.deterministic = True
 
 def clustering(feature, true_labels, cluster_num):
-    # 确保传入 Tensor
     predict_labels, _ = kmeans(X=feature, num_clusters=cluster_num, distance="euclidean", device=args.device)
     acc, nmi, ari, f1 = eva(true_labels, predict_labels.numpy(), show_details=False)
     return round(100 * acc, 2), round(100 * nmi, 2), round(100 * ari, 2), round(100 * f1, 2), predict_labels.numpy()
@@ -225,7 +224,7 @@ def select_high_confidence_samples(embeddings, pseudo_labels, cluster_num, confi
     if not isinstance(embeddings, torch.Tensor):
         embeddings = torch.FloatTensor(embeddings)
 
-    device = embeddings.device  # 保持在GPU
+    device = embeddings.device
 
     if not isinstance(pseudo_labels, torch.Tensor):
         pseudo_labels = torch.LongTensor(pseudo_labels).to(device)
@@ -262,7 +261,7 @@ def select_high_confidence_samples(embeddings, pseudo_labels, cluster_num, confi
     high_conf_labels = pseudo_labels.clone()
     high_conf_labels[~high_conf_mask] = -1
 
-    return high_conf_mask, high_conf_labels  # 返回GPU tensor
+    return high_conf_mask, high_conf_labels
 
 def get_semantic_labels(embeddings, cluster_num):
     import torch

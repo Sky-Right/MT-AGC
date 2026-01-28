@@ -58,7 +58,6 @@ def kmeans(
                 torch.sum((initial_state - initial_state_pre) ** 2, dim=1)
             ))
 
-        # increment iteration
         iteration = iteration + 1
 
         if iteration > 500:
