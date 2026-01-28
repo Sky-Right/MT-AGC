@@ -2,7 +2,7 @@
 
 This repository provides an **anonymous** implementation for the paper:
 
-**“Multi-Order Feature Fusion and Pseudo-Label Guided Semantic Matching for Contrastive Graph Clustering”**
+**“Multi-order Filtering Fusion and Triple Contrastive Learning for Attribute Graph Clustering”**
 
 > For questions, please open an issue in this repository.
 
